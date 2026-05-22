@@ -245,11 +245,14 @@ function setButtonLoading(formId, isLoading, defaultText = "Submit") {
         btn.disabled = true;
         btn.querySelector(".spinner").style.display = "inline-block";
         
-        // Set context loading texts
-        if (formId === "loginForm") {
-            btn.querySelector("span") ? (btn.querySelector("span").textContent = "Signing In...") : (btn.textContent = "Signing In...");
-        } else {
-            btn.querySelector("span") ? (btn.querySelector("span").textContent = "Creating Account...") : (btn.textContent = "Creating Account...");
+        // Set context loading texts on the text span (excluding the spinner)
+        const textSpan = btn.querySelector("span:not(.spinner)");
+        if (textSpan) {
+            if (formId === "loginForm") {
+                textSpan.textContent = "Signing In...";
+            } else {
+                textSpan.textContent = "Creating Account...";
+            }
         }
     } else {
         btn.classList.remove("loading");
@@ -257,9 +260,9 @@ function setButtonLoading(formId, isLoading, defaultText = "Submit") {
         const spinner = btn.querySelector(".spinner");
         if (spinner) spinner.style.display = "none";
         
-        const spanText = btn.querySelector("span");
-        if (spanText) {
-            spanText.textContent = defaultText;
+        const textSpan = btn.querySelector("span:not(.spinner)");
+        if (textSpan) {
+            textSpan.textContent = defaultText;
         } else {
             btn.textContent = defaultText;
         }

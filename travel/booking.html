@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Form</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+
+<body>
+
+    <div class="booking-container">
+
+        <h2>Book Your Trip</h2>
+
+        <form onsubmit="handleBooking(event)">
+
+            <input type="text" id="name" placeholder="Enter Name" required>
+
+            <input type="email" id="email" placeholder="Enter Email" required>
+
+            <input type="text" id="destination" placeholder="Destination" required>
+
+            <input type="number" id="people" placeholder="Number of People" required>
+
+            <input type="date" id="date" required>
+
+            <div id="weatherBox">
+                Select destination and date
+                to view weather forecast.
+            </div>
+
+            <button type="submit">
+                Proceed to Payment
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+<script src="booking.js"></script>
+</html>

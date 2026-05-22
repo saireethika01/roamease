@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    
+    
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="icon_area">
+                    <img src="images/icon.png" class="icon" width="30" height="30" >
+                    <span class="icon_name"><strong>Travel</strong></span>
+                </div>
+                <div class="menu_area">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about us">About us</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="main_content">
+                    <div class="main_heading"><h2>Explore the World, One Journey at a Time<h2></div>
+                    <input type="text" id="searchInput" placeholder="Search destinations..." class="search-box">
+                    <div id="searchResults"></div>
+
+                    <p>Travel isn’t always about the destination — it’s about the memories you make along the way</p>
+                    <a href="trip.html" class="btn">View Packages</a>
+                    <a href="book.html" class="btn secondary">Book Now</a>
+                </div>
+                
+
+                <h1 class="service_heading" id="services">Our Services</h1>
+                <div class="services">
+                    <div class="card1">
+                        <img src="images/card1.jpg" class="c1"> 
+                        <p>Budget-Friendly Packages, Premium Experience</p>
+                    </div>
+                    <div class="card2">
+                        <img src="images/card22.jpg" class="c2">
+                        <p>Affordable Trips. Unforgettable Memories</p>
+                    </div>
+                    <div class="card3">
+                        <img src="images/card3.jpg" class="c3">
+                        <p>Customized Plans, Just for You</p>
+                    </div>
+                </div>
+                <br>
+                <div class="about_us" id="about us">
+                    <img src="images/side.jpg" class="s">
+                    <div class="side_text">
+                        <h1>About Us</h1>
+                        <p>Welcome to Travel With Us — your trusted companion for unforgettable journeys. We are dedicated to making travel easier, affordable, and more enjoyable for everyone. Whether you're dreaming of relaxing beaches, thrilling adventures, or exploring new cultures, our platform offers personalized travel experiences tailored to your needs. With budget-friendly packages, 24/7 customer support, and secure booking options, we ensure a smooth and hassle-free trip from start to finish. At Travel With Us, we believe that travel is not just about reaching a destination — it’s about creating memories that last a lifetime. Start your journey with us and explore the world your way.</p>
+                    </div>
+                </div>
+                <br>
+                <div class="gallery" id="gallery">
+                    <h1 class="g">Our Gallery</h1>
+                    <img src="images/g1.jpg" class="g1">
+                    <img src="images/g2.jpg" class="g2">
+                    <img src="images/g3.jpg" class="g3">
+                    <img src="images/g4.jpg" class="g4">
+                    <img src="images/g5.jpg" class="g5">
+                    <img src="images/g6.jpg" class="g6">
+                </div>
+            </div>
+            <div class="footer">
+                <div class="address">
+                    <h3>Address</h3>
+      <p>Travel With Us Pvt. Ltd.</p>
+      <p>2nd Floor, Wanderlust Tower,</p>
+      <p>MG Road, Banjara Hills,</p>
+      <p>Hyderabad, Telangana - 500034</p>
+      
+                </div>
+                <div class="contact">
+                    <h3>Contact Us</h3>
+      <p>Email:<a href="contact@travelwithus.com">contact@travelwithus.com</a></p>
+      <p>Phone: +91-9876543210</p>
+      <p>Working Hours: Mon - Fri (9 AM - 6 PM)</p>
+      <p>@2025</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="auth.js"></script>
+    <script>
+        checkLogin();
+    </script>
+    <script src="search.js"></script>
+  
+
+</html>

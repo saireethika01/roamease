@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Payment</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="payment.css">
+
+</head>
+
+<body>
+
+    <div class="payment-container">
+
+        <h2>Complete Your Payment</h2>
+
+        <div class="payment-layout">
+
+            <!-- LEFT SECTION -->
+            <div class="left-section">
+
+                <div class="booking-summary">
+
+                    <h3>Booking Summary</h3>
+
+                    <p id="summaryDestination"></p>
+
+                    <p id="summaryPeople"></p>
+
+                    <p id="summaryDate"></p>
+
+                    <p id="summaryTotal"></p>
+
+                </div>
+
+
+
+                <div class="offers">
+
+                    <h3>Available Offers</h3>
+
+                    <p>TRAVEL20 → 20% OFF</p>
+
+                    <p>WELCOME10 → 10% OFF</p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT SECTION -->
+            <div class="right-section">
+
+                <div class="coupon-section">
+
+                    <input type="text"
+                           id="couponInput"
+                           placeholder="Enter Coupon Code">
+
+                    <button onclick="applyCoupon()">
+                        Apply
+                    </button>
+
+                </div>
+
+
+
+                <div class="payment-options">
+                    <label>
+                        <input type="radio"
+                            name="payment"
+                            value="upi"
+                            id="upi">
+                        UPI
+                    </label>
+                    <label>
+                        <input type="radio"
+                            name="payment"
+                            value="card"
+                            id="card">
+                            Credit / Debit Card
+                    </label>
+                    <label>
+                        <input type="radio"
+                            name="payment"
+                            value="netbanking"
+                            id="netbanking">
+                            Net Banking
+                    </label>
+                    <label>
+                        <input type="radio"
+                            name="payment"
+                            value="wallet"
+                            id="wallet">
+                            Wallet
+                    </label>
+                </div>
+
+
+                <div id="paymentDetails">
+
+                   <!-- UPI SECTION -->
+                    <div id="upiSection">
+                        <h3>Scan & Pay</h3>
+                        <img src="images/qr.png"
+                        alt="QR Code"
+                        class="qr-image">
+                    </div>
+                    <!-- CARD SECTION -->
+                    <div id="cardSection" style="display: none;">
+                        <input type="text"
+                            placeholder="Card Number"
+                            class="payment-input">
+                            <input type="text"
+                            placeholder="Card Holder Name"
+                            class="payment-input">
+                            <input type="text" 
+                            placeholder="Expiry Date"
+                            class="payment-input">
+                            <input type="password"  
+                             placeholder="CVV" 
+                             class="payment-input">
+                    </div>
+                    <!-- NET BANKING -->
+                    <div id="bankSection" style="display: none;">
+                        <select class="payment-input">
+                            <option>Select Bank</option>
+                            <option>SBI</option>
+                            <option>HDFC</option>
+                            <option>ICICI</option>
+                            <option>Axis Bank</option>
+                       </select>
+                    </div>
+                    <!-- WALLET -->
+                    <div id="walletSection" style="display: none;">
+                        <select class="payment-input">
+                            <option>Select Wallet</option>
+                            <option>Paytm</option>
+                            <option>PhonePe</option>
+                            <option>Google Pay</option>
+                            <option>Amazon Pay</option>
+                       </select>
+                    </div>
+                </div>
+    
+            
+                <div id="loader" style="display: none;">
+
+                    <p>Processing Payment...</p>
+
+                </div>
+    
+
+
+                <button onclick="makePayment()">
+                    Pay Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="payment.js"></script>
+
+</body>
+</html>

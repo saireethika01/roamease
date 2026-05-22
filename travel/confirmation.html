@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Booking Confirmation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="confirmation.css">
+
+</head>
+
+<body>
+
+    <div class="confirmation-container">
+
+        <h1>✅ Payment Successful</h1>
+
+        <h2>Your Trip Has Been Confirmed!</h2>
+
+
+
+        <div class="confirmation-details">
+
+            <p id="confirmDestination"></p>
+
+            <p id="confirmPeople"></p>
+
+            <p id="confirmDate"></p>
+
+            <p id="confirmAmount"></p>
+
+            <p id="transactionId"></p>
+
+        </div>
+
+
+
+        <p class="email-message">
+
+            Booking confirmation will be sent to your email.
+
+        </p>
+
+        <p class="cancel-note">
+
+              Note: Cancellation is allowed only within 7 days from booking date.
+
+        </p>
+
+        <button onclick="downloadTicket()" class="download-btn">
+            Download Ticket
+        </button>
+
+        <button onclick="cancelBooking()">
+
+            Cancel Booking
+
+        </button>
+
+    </div>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="confirmation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Packages</title>
+
+  <link rel="stylesheet" href="trip.css">
+
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+  <h1 class="t">Trip Packages</h1>
+
+  <br>
+
+
+
+  <div class="package-container">
+
+
+
+    <!-- PARIS -->
+
+    <div class="package" id="paris">
+
+      <h3>Paris Getaway</h3>
+
+      <div class="card">
+        <img src="images/paris.jpg" alt="Paris">
+      </div>
+
+      <p>⭐ 4.7/5 Rating</p>
+
+      <div class="places">
+
+        <p>📍 Places Covered:</p>
+
+        <ul style="margin-top: 0; padding-left: 22px;">
+          <li>Eiffel Tower</li>
+          <li>Louvre Museum</li>
+          <li>Seine River Cruise</li>
+          <li>Notre-Dame Cathedral</li>
+        </ul>
+
+      </div>
+
+      <p>
+        🛏 Hotel Stay:
+        4-Star Luxury Hotel
+      </p>
+
+      <p>
+        ✈ Flight Included:
+        Round Trip Included
+      </p>
+
+      <p>
+        🍽 Meals Included:
+        Breakfast & Dinner
+      </p>
+
+      <p>
+        🚖 Airport Pickup:
+        Free Pickup & Drop
+      </p>
+
+      <p>
+        🌤 Best Season To Visit:
+        April - June
+      </p>
+
+      <p>
+        👥 Best For:
+        Couples & Friends
+      </p>
+
+      <p>
+        🕒 Duration:
+        5 Days / 4 Nights
+      </p>
+
+      <p>
+        💰 Starting From:
+        ₹65,000 / person
+      </p>
+      <button onclick="toggleMap('parisMap', 48.8566, 2.3522, 'Paris, France')" class="map-btn">
+        View Map
+      </button>
+      <div id="parisMap" class="map-box"></div>
+      <button onclick="saveTrip('Paris')" class="wishlist-btn">♡ Save Trip</button>
+      <a href="booking.html?destination=Paris" class="button">
+        Book Now
+      </a>
+
+    </div>
+
+
+
+    <!-- LONDON -->
+
+    <div class="package" id="london">
+
+      <h3>London Explorer</h3>
+
+      <div class="card">
+        <img src="images/london.jpg" alt="London">
+      </div>
+
+      <p>⭐ 4.6/5 Rating</p>
+
+      <div class="places">
+
+        <p>📍 Places Covered:</p>
+
+        <ul style="margin-top: 0; padding-left: 22px;">
+          <li>Big Ben</li>
+          <li>London Eye</li>
+          <li>Tower Bridge</li>
+          <li>Buckingham Palace</li>
+        </ul>
+
+      </div>
+
+      <p>
+        🛏 Hotel Stay:
+        4-Star City Hotel
+      </p>
+
+      <p>
+        ✈ Flight Included:
+        Round Trip Included
+      </p>
+
+      <p>
+        🍽 Meals Included:
+        Breakfast Included
+      </p>
+
+      <p>
+        🚖 Airport Pickup:
+        Free Airport Transfer
+      </p>
+
+      <p>
+        🌤 Best Season To Visit:
+        May - September
+      </p>
+
+      <p>
+        👥 Best For:
+        Families & Friends
+      </p>
+
+      <p>
+        🕒 Duration:
+        6 Days / 5 Nights
+      </p>
+
+      <p>
+        💰 Starting From:
+        ₹70,000 / person
+      </p>
+      <button onclick="toggleMap('londonMap', 51.5072, -0.1276, 'London, UK')" class="map-btn">
+        View Map
+      </button>
+      <div id="londonMap" class="map-box"></div>
+      <button onclick="saveTrip('London')" class="wishlist-btn">♡ Save Trip</button>
+      <a href="booking.html?destination=London"
+        class="button">
+        Book Now
+      </a>
+
+    </div>
+
+
+
+    <!-- BALI -->
+
+    <div class="package" id="bali">
+
+      <h3>Bali Beach Retreat</h3>
+
+      <div class="card">
+        <img src="images/bali.jpg" alt="Bali">
+      </div>
+
+      <p>⭐ 4.8/5 Rating</p>
+
+      <div class="places">
+
+        <p>📍 Places Covered:</p>
+
+        <ul style="margin-top: 0; padding-left: 22px;">
+          <li>Ubud</li>
+          <li>Tanah Lot Temple</li>
+          <li>Kuta Beach</li>
+          <li>Nusa Penida</li>
+        </ul>
+
+      </div>
+
+      <p>
+        🛏 Hotel Stay:
+        4-Star Private Beach Resort
+      </p>
+
+      <p>
+        ✈ Flight Included:
+        Round Trip Included
+      </p>
+
+      <p>
+        🍽 Meals Included:
+        Breakfast & Dinner
+      </p>
+
+      <p>
+        🚖 Airport Pickup:
+        Free Pickup & Drop
+      </p>
+
+      <p>
+        🌤 Best Season To Visit:
+        April - October
+      </p>
+
+      <p>
+        👥 Best For:
+        Couples & Families
+      </p>
+
+      <p>
+        🕒 Duration:
+        5 Days / 4 Nights
+      </p>
+
+      <p>
+        💰 Starting From:
+        ₹55,000 / person
+      </p>
+
+      <button onclick="toggleMap('baliMap', -8.3405, 115.0920, 'Bali, Indonesia')" class="map-btn">
+        View Map
+      </button>
+
+      <div id="baliMap" class="map-box"></div>
+      <button onclick="saveTrip('Bali')" class="wishlist-btn">♡ Save Trip</button>
+      <a href="booking.html?destination=Bali"
+        class="button">
+        Book Now
+      </a>
+
+    </div>
+
+
+
+    <!-- MALDIVES -->
+
+    <div class="package" id="maldives">
+
+      <h3>Maldives Luxury Escape</h3>
+
+      <div class="card">
+        <img src="images/m.jpg" alt="Maldives">
+      </div>
+
+      <p>⭐ 4.9/5 Rating</p>
+
+      <div class="places">
+
+        <p>📍 Places Covered:</p>
+
+        <ul style="margin-top: 0; padding-left: 22px;">
+          <li>Male City</li>
+          <li>Private Islands</li>
+          <li>Water Villas</li>
+          <li>Coral Beaches</li>
+        </ul>
+
+      </div>
+
+      <p>
+        🛏 Hotel Stay:
+        5-Star Overwater Villa
+      </p>
+
+      <p>
+        ✈ Flight Included:
+        Round Trip Included
+      </p>
+
+      <p>
+        🍽 Meals Included:
+        All Meals Included
+      </p>
+
+      <p>
+        🚖 Airport Pickup:
+        Speed Boat Transfer Included
+      </p>
+
+      <p>
+        🌤 Best Season To Visit:
+        November - April
+      </p>
+
+      <p>
+        👥 Best For:
+        Honeymoon Couples
+      </p>
+
+      <p>
+        🕒 Duration:
+        4 Days / 3 Nights
+      </p>
+
+      <p>
+        💰 Starting From:
+        ₹80,000 / person
+      </p>
+      <button onclick="toggleMap('maldivesMap', 3.2028, 73.2207, 'Maldives')" class="map-btn">
+        View Map
+      </button>
+      <button onclick="saveTrip('Maldives')" class="wishlist-btn">♡ Save Trip</button>
+      <div id="maldivesMap" class="map-box"></div>
+      <a href="booking.html?destination=Maldives"
+        class="button">
+        Book Now
+      </a>
+
+    </div>
+
+
+
+    <!-- DUBAI -->
+    <div class="package" id="dubai">
+      <h3>Dubai Adventure Trip</h3>
+      <div class="card">
+        <img src="images/dubai.jpg" alt="Dubai">
+      </div>
+      <p>⭐ 4.7/5 Rating</p>
+      <div class="places">
+        <p>📍 Places Covered:</p>
+        <ul style="margin-top: 0; padding-left: 22px;">
+          <li>Burj Khalifa</li>
+          <li>Desert Safari</li>
+          <li>Dubai Mall</li>
+          <li>Palm Jumeirah</li>
+        </ul>
+      </div>
+      <p>
+        🛏 Hotel Stay:
+        4-Star Premium Hotel
+      </p>
+      <p>
+        ✈ Flight Included:
+        Round Trip Included
+      </p>
+      <p>
+        🍽 Meals Included:
+        Breakfast Included
+      </p>
+      <p>
+        🚖 Airport Pickup:
+        Included
+      </p>
+      <p>
+        🌤 Best Season To Visit:
+        November - March
+      </p>
+      <p>
+        👥 Best For:
+        Families & Friends
+      </p>
+      <p>
+        🕒 Duration:
+        5 Days / 4 Nights
+      </p>
+      <p>
+        💰 Starting From:
+        ₹68,000 / person
+      </p>
+      <button onclick="toggleMap('dubaiMap', 25.2048, 55.2708, 'Dubai, UAE')" class="map-btn">
+        View Map
+      </button>
+      <div id="dubaiMap" class="map-box"></div>
+      <button onclick="saveTrip('Dubai')" class="wishlist-btn">♡ Save Trip</button>
+      <a href="booking.html?destination=Dubai"
+        class="button">
+        Book Now
+      </a>
+    </div>
+
+
+
+    <!-- KOREA -->
+    <div class="package" id="korea">
+      <h3>Korea Cultural Tour</h3>
+      <div class="card">
+      <img src="images/korea.jpg" alt="Korea">
+    </div>
+    <p>⭐ 4.7/5 Rating</p>
+    <div class="places">
+      <p>📍 Places Covered:</p>
+      <ul style="margin-top: 0; padding-left: 22px;">
+        <li>Seoul Tower</li>
+        <li>Gyeongbokgung Palace</li>
+        <li>Myeongdong Street</li>
+        <li>Busan Beach</li>
+      </ul>
+    </div>
+    <p>🛏 Hotel Stay: 4-Star City Hotel</p>
+
+    <p>✈ Flight Included: Round Trip Included</p>
+
+    <p>🍽 Meals Included: Breakfast Included</p>
+
+    <p>🚖 Airport Pickup: Included</p>
+
+    <p>🌤 Best Season To Visit: March - May</p>
+
+    <p>👥 Best For: Friends & Families</p>
+
+    <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+    <p>💰 Starting From: ₹60,000 / person</p>
+
+    <button onclick="toggleMap('koreaMap', 36.5, 127.8, 'South Korea')" class="map-btn">
+    View Map
+    </button>
+    <div id="koreaMap" class="map-box"></div>
+    <button onclick="saveTrip('Korea')" class="wishlist-btn">♡ Save Trip</button>
+    <a href="booking.html?destination=Korea" class="button">
+    Book Now
+    </a>
+  </div>
+
+
+
+<!-- SWITZERLAND -->
+<div class="package" id="switzerland">
+
+  <h3>Switzerland Snow Escape</h3>
+
+  <div class="card">
+    <img src="images/switzerland.jpg" alt="Switzerland">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Zurich</li>
+      <li>Interlaken</li>
+      <li>Lucerne</li>
+      <li>Mount Titlis</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 5-Star Mountain Resort</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: December - March</p>
+
+  <p>👥 Best For: Couples & Honeymoon</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹1,20,000 / person</p>
+
+  <button onclick="toggleMap('swissMap', 46.8182, 8.2275, 'Switzerland')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="swissMap" class="map-box"></div>
+  <button onclick="saveTrip('Switzerland')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Switzerland"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- THAILAND -->
+<div class="package" id="thailand">
+
+  <h3>Thailand Island Adventure</h3>
+
+  <div class="card">
+    <img src="images/thailand.jpg" alt="Thailand">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Bangkok</li>
+      <li>Phuket</li>
+      <li>Pattaya</li>
+      <li>Phi Phi Islands</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Beach Resort</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - February</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹58,000 / person</p>
+
+  <button onclick="toggleMap('thailandMap', 15.87, 100.9925, 'Thailand')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="thailandMap" class="map-box"></div>
+  <button onclick="saveTrip('Thailand')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Thailand"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- SINGAPORE -->
+<div class="package" id="singapore">
+
+  <h3>Singapore City Lights</h3>
+
+  <div class="card">
+    <img src="images/singapore.jpg" alt="Singapore">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Marina Bay Sands</li>
+      <li>Sentosa Island</li>
+      <li>Universal Studios</li>
+      <li>Gardens By The Bay</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Luxury Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: February - April</p>
+
+  <p>👥 Best For: Families & Couples</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹72,000 / person</p>
+
+  <button onclick="toggleMap('singaporeMap', 1.3521, 103.8198, 'Singapore')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="singaporeMap" class="map-box"></div>
+  <button onclick="saveTrip('Singapore')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Singapore"
+    class="button">
+    Book Now
+  </a>
+</div>
+
+
+<!-- JAPAN -->
+<div class="package" id="japan">
+
+  <h3>Japan Sakura Tour</h3>
+
+  <div class="card">
+    <img src="images/japan.jpg" alt="Japan">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Tokyo</li>
+      <li>Kyoto</li>
+      <li>Mount Fuji</li>
+      <li>Osaka</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 5-Star City Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - April</p>
+
+  <p>👥 Best For: Couples & Families</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹1,10,000 / person</p>
+
+  <button onclick="toggleMap('japanMap', 36.2048, 138.2529, 'Japan')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="japanMap" class="map-box"></div>
+  <button onclick="saveTrip('Japan')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Japan"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- TURKEY -->
+<div class="package" id="turkey">
+
+  <h3>Turkey Heritage Journey</h3>
+
+  <div class="card">
+    <img src="images/turkey.jpg" alt="Turkey">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Istanbul</li>
+      <li>Cappadocia</li>
+      <li>Blue Mosque</li>
+      <li>Hot Air Balloon Ride</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Heritage Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - June</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹78,000 / person</p>
+
+  <button onclick="toggleMap('turkeyMap', 38.9637, 35.2433, 'Turkey')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="turkeyMap" class="map-box"></div>
+  <button onclick="saveTrip('Turkey')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Turkey"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- CANADA -->
+<div class="package" id="canada">
+
+  <h3>Canada Nature Escape</h3>
+
+  <div class="card">
+    <img src="images/canada.jpg" alt="Canada">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Toronto</li>
+      <li>Niagara Falls</li>
+      <li>Vancouver</li>
+      <li>Banff National Park</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Luxury Stay</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: June - September</p>
+
+  <p>👥 Best For: Families & Nature Lovers</p>
+
+  <p>🕒 Duration: 7 Days / 6 Nights</p>
+
+  <p>💰 Starting From: ₹1,25,000 / person</p>
+
+  <button onclick="toggleMap('canadaMap', 56.1304, -106.3468, 'Canada')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="canadaMap" class="map-box"></div>
+  <button onclick="saveTrip('Canada')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Canada"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- AUSTRALIA -->
+<div class="package" id="australia">
+
+  <h3>Australia Coastal Adventure</h3>
+
+  <div class="card">
+    <img src="images/australia.jpg" alt="Australia">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Sydney Opera House</li>
+      <li>Great Barrier Reef</li>
+      <li>Melbourne</li>
+      <li>Gold Coast</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 5-Star Premium Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: September - November</p>
+
+  <p>👥 Best For: Adventure Lovers</p>
+
+  <p>🕒 Duration: 7 Days / 6 Nights</p>
+
+  <p>💰 Starting From: ₹1,30,000 / person</p>
+
+  <button onclick="toggleMap('australiaMap', -25.2744, 133.7751, 'Australia')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="australiaMap" class="map-box"></div>
+  <button onclick="saveTrip('Australia')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Australia"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- ITALY -->
+<div class="package" id="italy">
+
+  <h3>Italy Romantic Escape</h3>
+
+  <div class="card">
+    <img src="images/italy.jpg" alt="Italy">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Rome</li>
+      <li>Venice</li>
+      <li>Pisa</li>
+      <li>Florence</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Luxury Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - June</p>
+
+  <p>👥 Best For: Couples & Families</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹95,000 / person</p>
+
+  <button onclick="toggleMap('italyMap', 41.8719, 12.5674, 'Italy')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="italyMap" class="map-box"></div>
+  <button onclick="saveTrip('Italy')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Italy"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- GERMANY -->
+<div class="package" id="germany">
+
+  <h3>Germany City Explorer</h3>
+
+  <div class="card">
+    <img src="images/germany.jpg" alt="Germany">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Berlin</li>
+      <li>Munich</li>
+      <li>Neuschwanstein Castle</li>
+      <li>Hamburg</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Business Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: May - September</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹88,000 / person</p>
+
+  <button onclick="toggleMap('germanyMap', 51.1657, 10.4515, 'Germany')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="germanyMap" class="map-box"></div>
+  <button onclick="saveTrip('Germany')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Germany"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- SPAIN -->
+<div class="package" id="spain">
+
+  <h3>Spain Fiesta Vacation</h3>
+
+  <div class="card">
+    <img src="images/spain.jpg" alt="Spain">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Barcelona</li>
+      <li>Madrid</li>
+      <li>Seville</li>
+      <li>Ibiza</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Resort Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - October</p>
+
+  <p>👥 Best For: Couples & Friends</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹92,000 / person</p>
+
+  <button onclick="toggleMap('spainMap', 40.4637, -3.7492, 'Spain')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="spainMap" class="map-box"></div>
+  <button onclick="saveTrip('Spain')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Spain"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- GREECE -->
+<div class="package" id="greece">
+
+  <h3>Greece Island Paradise</h3>
+
+  <div class="card">
+    <img src="images/greece.jpg" alt="Greece">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Santorini</li>
+      <li>Athens</li>
+      <li>Mykonos</li>
+      <li>Acropolis</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 5-Star Sea View Resort</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: May - September</p>
+
+  <p>👥 Best For: Honeymoon Couples</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹1,05,000 / person</p>
+
+  <button onclick="toggleMap('greeceMap', 39.0742, 21.8243, 'Greece')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="greeceMap" class="map-box"></div>
+  <button onclick="saveTrip('Greece')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Greece"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+<!-- NEW YORK -->
+<div class="package" id="newyork">
+
+  <h3>New York City Lights</h3>
+
+  <div class="card">
+    <img src="images/newyork.jpg" alt="New York">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Times Square</li>
+      <li>Statue of Liberty</li>
+      <li>Central Park</li>
+      <li>Brooklyn Bridge</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Downtown Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - June</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹1,15,000 / person</p>
+
+  <button onclick="toggleMap('newyorkMap', 40.7128, -74.0060, 'New York, USA')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="newyorkMap" class="map-box"></div>
+
+  <button onclick="saveTrip('New York')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=New York"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- LOS ANGELES -->
+<div class="package" id="losangeles">
+
+  <h3>Los Angeles Hollywood Tour</h3>
+
+  <div class="card">
+    <img src="images/losangeles.jpg" alt="Los Angeles">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Hollywood Sign</li>
+      <li>Santa Monica</li>
+      <li>Beverly Hills</li>
+      <li>Universal Studios</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Premium Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - May</p>
+
+  <p>👥 Best For: Families & Friends</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹1,10,000 / person</p>
+
+  <button onclick="toggleMap('laMap', 34.0522, -118.2437, 'Los Angeles, USA')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="laMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Los Angeles')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Los Angeles"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- BANGKOK -->
+<div class="package" id="bangkok">
+
+  <h3>Bangkok City Adventure</h3>
+
+  <div class="card">
+    <img src="images/bangkok.jpg" alt="Bangkok">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Grand Palace</li>
+      <li>Floating Market</li>
+      <li>Wat Arun</li>
+      <li>Chao Phraya Cruise</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Riverside Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - February</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹52,000 / person</p>
+
+  <button onclick="toggleMap('bangkokMap', 13.7563, 100.5018, 'Bangkok, Thailand')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="bangkokMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Bangkok')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Bangkok"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- SEOUL -->
+<div class="package" id="seoul">
+
+  <h3>Seoul Modern Escape</h3>
+
+  <div class="card">
+    <img src="images/seoul.jpg" alt="Seoul">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>N Seoul Tower</li>
+      <li>Hongdae Street</li>
+      <li>Gyeongbokgung Palace</li>
+      <li>Han River</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star City Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - May</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹82,000 / person</p>
+
+  <button onclick="toggleMap('seoulMap', 37.5665, 126.9780, 'Seoul, South Korea')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="seoulMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Seoul')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Seoul"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- NEW YORK -->
+<div class="package" id="newyork">
+
+  <h3>New York City Lights</h3>
+
+  <div class="card">
+    <img src="images/newyork.jpg" alt="New York">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Times Square</li>
+      <li>Statue of Liberty</li>
+      <li>Central Park</li>
+      <li>Brooklyn Bridge</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Downtown Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - June</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹1,15,000 / person</p>
+
+  <button onclick="toggleMap('newyorkMap', 40.7128, -74.0060, 'New York, USA')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="newyorkMap" class="map-box"></div>
+
+  <button onclick="saveTrip('New York')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=New York"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- LOS ANGELES -->
+<div class="package" id="losangeles">
+
+  <h3>Los Angeles Hollywood Tour</h3>
+
+  <div class="card">
+    <img src="images/losangeles.jpg" alt="Los Angeles">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Hollywood Sign</li>
+      <li>Santa Monica</li>
+      <li>Beverly Hills</li>
+      <li>Universal Studios</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Premium Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - May</p>
+
+  <p>👥 Best For: Families & Friends</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹1,10,000 / person</p>
+
+  <button onclick="toggleMap('laMap', 34.0522, -118.2437, 'Los Angeles, USA')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="laMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Los Angeles')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Los Angeles"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- BANGKOK -->
+<div class="package" id="bangkok">
+
+  <h3>Bangkok City Adventure</h3>
+
+  <div class="card">
+    <img src="images/bangkok.jpg" alt="Bangkok">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Grand Palace</li>
+      <li>Floating Market</li>
+      <li>Wat Arun</li>
+      <li>Chao Phraya Cruise</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Riverside Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - February</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹52,000 / person</p>
+
+  <button onclick="toggleMap('bangkokMap', 13.7563, 100.5018, 'Bangkok, Thailand')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="bangkokMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Bangkok')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Bangkok"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- SEOUL -->
+<div class="package" id="seoul">
+
+  <h3>Seoul Modern Escape</h3>
+
+  <div class="card">
+    <img src="images/seoul.jpg" alt="Seoul">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>N Seoul Tower</li>
+      <li>Hongdae Street</li>
+      <li>Gyeongbokgung Palace</li>
+      <li>Han River</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star City Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - May</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹82,000 / person</p>
+
+  <button onclick="toggleMap('seoulMap', 37.5665, 126.9780, 'Seoul, South Korea')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="seoulMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Seoul')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Seoul"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+<!-- SHIMLA -->
+<div class="package" id="shimla">
+
+  <h3>Shimla Hill Retreat</h3>
+
+  <div class="card">
+    <img src="images/shimla.jpg" alt="Shimla">
+  </div>
+
+  <p>⭐ 4.6/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Mall Road</li>
+      <li>Kufri</li>
+      <li>Jakhoo Temple</li>
+      <li>Christ Church</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Mountain Resort</p>
+
+  <p>✈ Flight Included: Volvo & Train Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: October - February</p>
+
+  <p>👥 Best For: Families & Couples</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹28,000 / person</p>
+
+  <button onclick="toggleMap('shimlaMap', 31.1048, 77.1734, 'Shimla, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="shimlaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Shimla')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Shimla"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- TOKYO -->
+<div class="package" id="tokyo">
+
+  <h3>Tokyo Neon Adventure</h3>
+
+  <div class="card">
+    <img src="images/tokyo.jpg" alt="Tokyo">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Shibuya Crossing</li>
+      <li>Tokyo Tower</li>
+      <li>Akihabara</li>
+      <li>Sensoji Temple</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 5-Star City Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - April</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹1,18,000 / person</p>
+
+  <button onclick="toggleMap('tokyoMap', 35.6762, 139.6503, 'Tokyo, Japan')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="tokyoMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Tokyo')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Tokyo"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- MALAYSIA -->
+<div class="package" id="malaysia">
+
+  <h3>Malaysia Tropical Tour</h3>
+
+  <div class="card">
+    <img src="images/malaysia.jpg" alt="Malaysia">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Kuala Lumpur</li>
+      <li>Langkawi</li>
+      <li>Petronas Towers</li>
+      <li>Batu Caves</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Luxury Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: December - February</p>
+
+  <p>👥 Best For: Families & Friends</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹64,000 / person</p>
+
+  <button onclick="toggleMap('malaysiaMap', 4.2105, 101.9758, 'Malaysia')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="malaysiaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Malaysia')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Malaysia"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- INDONESIA -->
+<div class="package" id="indonesia">
+
+  <h3>Indonesia Island Escape</h3>
+
+  <div class="card">
+    <img src="images/indonesia.jpg" alt="Indonesia">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Jakarta</li>
+      <li>Bali</li>
+      <li>Komodo Island</li>
+      <li>Ubud</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Beach Resort</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: April - October</p>
+
+  <p>👥 Best For: Couples & Friends</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹72,000 / person</p>
+
+  <button onclick="toggleMap('indonesiaMap', -0.7893, 113.9213, 'Indonesia')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="indonesiaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Indonesia')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Indonesia"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+<!-- VIETNAM -->
+<div class="package" id="vietnam">
+
+  <h3>Vietnam Cultural Escape</h3>
+
+  <div class="card">
+    <img src="images/vietnam.jpg" alt="Vietnam">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Hanoi</li>
+      <li>Ha Long Bay</li>
+      <li>Ho Chi Minh City</li>
+      <li>Da Nang</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Premium Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - April</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹58,000 / person</p>
+
+  <button onclick="toggleMap('vietnamMap', 14.0583, 108.2772, 'Vietnam')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="vietnamMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Vietnam')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Vietnam"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- GOA -->
+<div class="package" id="goa">
+
+  <h3>Goa Beach Vacation</h3>
+
+  <div class="card">
+    <img src="images/goa.jpg" alt="Goa">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Baga Beach</li>
+      <li>Calangute</li>
+      <li>Dudhsagar Falls</li>
+      <li>Fort Aguada</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Beach Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - February</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹24,000 / person</p>
+
+  <button onclick="toggleMap('goaMap', 15.2993, 74.1240, 'Goa, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="goaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Goa')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Goa"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- KERALA -->
+<div class="package" id="kerala">
+
+  <h3>Kerala Backwater Escape</h3>
+
+  <div class="card">
+    <img src="images/kerala.jpg" alt="Kerala">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Munnar</li>
+      <li>Alleppey</li>
+      <li>Thekkady</li>
+      <li>Kochi</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: Luxury Houseboat & Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: September - March</p>
+
+  <p>👥 Best For: Families & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹32,000 / person</p>
+
+  <button onclick="toggleMap('keralaMap', 10.8505, 76.2711, 'Kerala, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="keralaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Kerala')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Kerala"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- KASHMIR -->
+<div class="package" id="kashmir">
+
+  <h3>Kashmir Snow Paradise</h3>
+
+  <div class="card">
+    <img src="images/kashmir.jpg" alt="Kashmir">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Srinagar</li>
+      <li>Gulmarg</li>
+      <li>Pahalgam</li>
+      <li>Dal Lake</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Mountain Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: December - March</p>
+
+  <p>👥 Best For: Honeymoon Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹38,000 / person</p>
+
+  <button onclick="toggleMap('kashmirMap', 33.7782, 76.5762, 'Kashmir, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="kashmirMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Kashmir')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Kashmir"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- MANALI -->
+<div class="package" id="manali">
+
+  <h3>Manali Adventure Escape</h3>
+
+  <div class="card">
+    <img src="images/manali.jpg" alt="Manali">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Solang Valley</li>
+      <li>Rohtang Pass</li>
+      <li>Hadimba Temple</li>
+      <li>Old Manali</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Mountain Resort</p>
+
+  <p>✈ Flight Included: Volvo & Cab Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: October - February</p>
+
+  <p>👥 Best For: Adventure Lovers & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹34,000 / person</p>
+
+  <button onclick="toggleMap('manaliMap', 32.2396, 77.1887, 'Manali, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="manaliMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Manali')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Manali"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- ANDAMAN -->
+<div class="package" id="andaman">
+
+  <h3>Andaman Island Escape</h3>
+
+  <div class="card">
+    <img src="images/andaman.jpg" alt="Andaman">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Havelock Island</li>
+      <li>Radhanagar Beach</li>
+      <li>Cellular Jail</li>
+      <li>Ross Island</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Beach Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: October - May</p>
+
+  <p>👥 Best For: Couples & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹42,000 / person</p>
+
+  <button onclick="toggleMap('andamanMap', 11.7401, 92.6586, 'Andaman Islands')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="andamanMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Andaman')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Andaman"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- PANAMA -->
+<div class="package" id="panama">
+
+  <h3>Panama Canal Adventure</h3>
+
+  <div class="card">
+    <img src="images/panama.jpg" alt="Panama">
+  </div>
+
+  <p>⭐ 4.6/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Panama Canal</li>
+      <li>Casco Viejo</li>
+      <li>San Blas Islands</li>
+      <li>Panama City</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Luxury Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: December - April</p>
+
+  <p>👥 Best For: Adventure Lovers</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹1,05,000 / person</p>
+
+  <button onclick="toggleMap('panamaMap', 8.5380, -80.7821, 'Panama')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="panamaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Panama')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Panama"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- PAKISTAN -->
+<div class="package" id="pakistan">
+
+  <h3>Pakistan Mountain Tour</h3>
+
+  <div class="card">
+    <img src="images/pakistan.jpg" alt="Pakistan">
+  </div>
+
+  <p>⭐ 4.5/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Hunza Valley</li>
+      <li>Skardu</li>
+      <li>Fairy Meadows</li>
+      <li>Islamabad</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Mountain Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: May - September</p>
+
+  <p>👥 Best For: Adventure Lovers</p>
+
+  <p>🕒 Duration: 6 Days / 5 Nights</p>
+
+  <p>💰 Starting From: ₹85,000 / person</p>
+
+  <button onclick="toggleMap('pakistanMap', 30.3753, 69.3451, 'Pakistan')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="pakistanMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Pakistan')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Pakistan"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+<!-- VIETNAM -->
+<div class="package" id="vietnam">
+
+  <h3>Vietnam Cultural Escape</h3>
+
+  <div class="card">
+    <img src="images/vietnam.jpg" alt="Vietnam">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Hanoi</li>
+      <li>Ha Long Bay</li>
+      <li>Ho Chi Minh City</li>
+      <li>Da Nang</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Premium Hotel</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - April</p>
+
+  <p>👥 Best For: Friends & Families</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹58,000 / person</p>
+
+  <button onclick="toggleMap('vietnamMap', 14.0583, 108.2772, 'Vietnam')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="vietnamMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Vietnam')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Vietnam"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- GOA -->
+<div class="package" id="goa">
+
+  <h3>Goa Beach Vacation</h3>
+
+  <div class="card">
+    <img src="images/goa.jpg" alt="Goa">
+  </div>
+
+  <p>⭐ 4.8/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Baga Beach</li>
+      <li>Calangute</li>
+      <li>Dudhsagar Falls</li>
+      <li>Fort Aguada</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Beach Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: November - February</p>
+
+  <p>👥 Best For: Friends & Couples</p>
+
+  <p>🕒 Duration: 4 Days / 3 Nights</p>
+
+  <p>💰 Starting From: ₹24,000 / person</p>
+
+  <button onclick="toggleMap('goaMap', 15.2993, 74.1240, 'Goa, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="goaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Goa')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Goa"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- KERALA -->
+<div class="package" id="kerala">
+
+  <h3>Kerala Backwater Escape</h3>
+
+  <div class="card">
+    <img src="images/kerala.jpg" alt="Kerala">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Munnar</li>
+      <li>Alleppey</li>
+      <li>Thekkady</li>
+      <li>Kochi</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: Luxury Houseboat & Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: September - March</p>
+
+  <p>👥 Best For: Families & Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹32,000 / person</p>
+
+  <button onclick="toggleMap('keralaMap', 10.8505, 76.2711, 'Kerala, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="keralaMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Kerala')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Kerala"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+<!-- KASHMIR -->
+<div class="package" id="kashmir">
+
+  <h3>Kashmir Snow Paradise</h3>
+
+  <div class="card">
+    <img src="images/kashmir.jpg" alt="Kashmir">
+  </div>
+
+  <p>⭐ 4.9/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Srinagar</li>
+      <li>Gulmarg</li>
+      <li>Pahalgam</li>
+      <li>Dal Lake</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Mountain Resort</p>
+
+  <p>✈ Flight Included: Optional</p>
+
+  <p>🍽 Meals Included: Breakfast & Dinner</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: December - March</p>
+
+  <p>👥 Best For: Honeymoon Couples</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹38,000 / person</p>
+
+  <button onclick="toggleMap('kashmirMap', 33.7782, 76.5762, 'Kashmir, India')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="kashmirMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Kashmir')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Kashmir"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+<!-- PORTUGAL -->
+<div class="package" id="portugal">
+
+  <h3>Portugal Coastal Escape</h3>
+
+  <div class="card">
+    <img src="images/portugal.jpg" alt="Portugal">
+  </div>
+
+  <p>⭐ 4.7/5 Rating</p>
+
+  <div class="places">
+    <p>📍 Places Covered:</p>
+
+    <ul style="margin-top: 0; padding-left: 22px;">
+      <li>Lisbon</li>
+      <li>Porto</li>
+      <li>Algarve Beaches</li>
+      <li>Sintra Palace</li>
+    </ul>
+  </div>
+
+  <p>🛏 Hotel Stay: 4-Star Coastal Resort</p>
+
+  <p>✈ Flight Included: Round Trip Included</p>
+
+  <p>🍽 Meals Included: Breakfast Included</p>
+
+  <p>🚖 Airport Pickup: Included</p>
+
+  <p>🌤 Best Season To Visit: March - June</p>
+
+  <p>👥 Best For: Couples & Friends</p>
+
+  <p>🕒 Duration: 5 Days / 4 Nights</p>
+
+  <p>💰 Starting From: ₹90,000 / person</p>
+
+  <button onclick="toggleMap('portugalMap', 39.3999, -8.2245, 'Portugal')"
+    class="map-btn">
+    View Map
+  </button>
+
+  <div id="portugalMap" class="map-box"></div>
+
+  <button onclick="saveTrip('Portugal')" class="wishlist-btn">♡ Save Trip</button>
+  <a href="booking.html?destination=Portugal"
+    class="button">
+    Book Now
+  </a>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+  <script src="auth.js"></script>
+
+  <script>
+    checkLogin();
+  </script>
+
+  <script src="trip.js"></script>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</body>
+
+</html>

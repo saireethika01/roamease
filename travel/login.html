@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        width: 400px;   /* 🔥 increased size */
+        text-align: center;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+   }
+
+    h2 {
+        margin-bottom: 25px;
+        font-size: 26px;
+    }
+
+    input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    }
+ 
+    button {
+    width: 100%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+   }
+
+    button:hover {
+    background: blueviolet;
+   }
+
+   .signup-link {
+    margin-top: 18px;
+    display: block;
+    font-size: 14px;
+    }
+
+     .signup-link a {
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: bold;
+    }
+    </style>
+</head>
+<script src="auth.js"></script>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <form onsubmit="handleLogin(event)">
+            <input type="email" id="loginEmail" placeholder="Enter Email" required>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <span class="signup-link">
+            Don't have an account? <a href="signup.html">Signup</a>
+        </span>
+    </div>
+
+</body>
+</html>

@@ -5,7 +5,7 @@ const defaultReviews = [
     {
         name: "Aarav Sharma",
         rating: 5,
-        text: "Had an amazing vacation in Goa! The package was extremely budget-friendly, and the hotel was excellent. Highly recommend Travel With Us!"
+        text: "Had an amazing vacation in Goa! The package was extremely budget-friendly, and the hotel was excellent. Highly recommend RoamEase!"
     },
     {
         name: "Priya Patel",

@@ -1,9 +1,10 @@
 # RoamEase Travel Booking
 
-RoamEase is a modern, responsive travel booking web application built with HTML, CSS, and JavaScript. It provides a seamless user experience for discovering, booking, and managing travel experiences.
+RoamEase is a modern, responsive travel booking web application built with HTML, CSS, JavaScript, and a Python backend. It provides a seamless user experience for discovering, booking, and managing travel experiences, all assisted by an interactive AI chatbot.
 
 ## Features
 
+- **Roamie AI Chatbot**: An intelligent, interactive travel assistant powered by the Groq API that helps you plan itineraries and manage budgets.
 - **User Authentication**: Sign up and login functionality.
 - **Search & Discovery**: Browse and search for trips and destinations.
 - **Trip Details**: View detailed information about specific trips, including itineraries and pricing.
@@ -18,15 +19,18 @@ RoamEase is a modern, responsive travel booking web application built with HTML,
 - HTML5
 - CSS3 (Vanilla)
 - JavaScript (Vanilla)
+- Python (Flask, Flask-CORS) - Chatbot Backend
+- Groq API - AI Chatbot Engine
 
 ## Getting Started
 
-Since this is a vanilla web application, you can run it entirely in your browser without any complex build steps.
+To run this application fully (including the AI chatbot), you will need Python installed on your system.
 
 ### Prerequisites
 
 - A modern web browser (Chrome, Firefox, Safari, Edge, etc.)
-- (Optional) A local web server for the best experience.
+- Python 3.x
+- pip (Python package installer)
 
 ### Running Locally
 
@@ -35,9 +39,22 @@ Since this is a vanilla web application, you can run it entirely in your browser
    ```bash
    cd travel
    ```
-3. **Open the application**:
-   - **Method 1 (Simple)**: Simply double-click on `index.html` to open it in your default web browser.
-   - **Method 2 (Recommended)**: Use a local development server like VS Code's "Live Server" extension, or run a simple Node.js server using `npx serve .` in your terminal. This avoids potential CORS issues with local file protocols.
+3. **Set up the AI Chatbot Backend**:
+   - Create a `.env` file in the root of the project and add your Groq API Key:
+     ```
+     GROQ_API_KEY=your_groq_api_key_here
+     ```
+   - Install the required Python packages:
+     ```bash
+     python -m pip install flask flask-cors groq
+     ```
+   - Run the Flask server (it will start on port 5000):
+     ```bash
+     python app.py
+     ```
+4. **Open the application**:
+   - Leave the Python terminal running in the background.
+   - Use a local development server like VS Code's "Live Server" extension, or run a simple Node.js server using `npx serve .` in a new terminal window to serve the HTML files.
 
 ## Project Structure
 
@@ -51,8 +68,9 @@ travel/
 ├── payment.html      # Payment processing
 ├── confirmation.html # Booking confirmation
 ├── wishlist.html     # User wishlist
-├── *.css             # Stylesheets (index.css, auth.css, etc.)
-├── *.js              # JavaScript files (search.js, trip.js, etc.)
+├── *.css             # Stylesheets (index.css, chatbot.css, etc.)
+├── *.js              # JavaScript files (chatbot.js, trip.js, etc.)
+├── app.py            # Python Flask backend for the AI Chatbot
+├── requirements.txt  # Python dependencies
 └── images/           # Image assets
 ```
-

@@ -1,130 +1,121 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background-image: url("images/bg2.png");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-repeat: no-repeat;
-
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
+* {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-sizing: border-box;
 }
 
-
+body {
+    margin: 0;
+    background-image: url("images/bg2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+}
 
 /* CONTAINER */
-
 .confirmation-container {
-
     width: 600px;
-
-    background-color: rgba(255,255,255,0.92);
-
-    padding: 35px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-
+    background-color: rgba(255,255,255,0.96);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     text-align: center;
 }
 
+.confirmation-container h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #10b981;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 
+.confirmation-container h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
 
 /* DETAILS */
-
 .confirmation-details {
-
-    background-color: #f5f5f5;
-
-    padding: 20px;
-
-    border-radius: 8px;
-
+    background-color: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
     margin-top: 20px;
-
     text-align: left;
+    border: 1px solid #e2e8f0;
 }
 
 .confirmation-details p {
-
-    margin: 12px 0;
-
-    font-size: 17px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #475569;
+    font-weight: 500;
 }
-
-
 
 /* EMAIL MESSAGE */
-
 .email-message {
-
-    margin-top: 20px;
-
-    color: green;
-
-    font-weight: bold;
+    margin-top: 24px;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 15px;
 }
 
-
+/* CANCEL NOTE */
+.cancel-note {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
 /* BUTTON */
-
 button {
-
-    margin-top: 20px;
-
+    margin-top: 15px;
     width: 100%;
-
     padding: 14px;
-
-    background-color: crimson;
-
+    background-color: #ef4444;
     color: white;
-
     border: none;
-
-    border-radius: 5px;
-
+    border-radius: 8px;
     font-size: 16px;
-
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 button:hover {
-
-    background-color: darkred;
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
 }
-
 
 .download-btn {
-
   margin-top: 20px;
-
-  padding: 12px 22px;
-
+  padding: 14px;
   border: none;
-
   border-radius: 8px;
-
-  background-color: #007bff;
-
+  background-color: #0f172a;
   color: white;
-
   font-size: 16px;
-
+  font-weight: 600;
   cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
 }
+
+.download-btn:hover {
+  background-color: blueviolet;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(138, 43, 226, 0.2);
+}

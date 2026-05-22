@@ -1,0 +1,415 @@
+/* auth.css - unified premium corporate styling for authentication screens */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body.auth-body {
+    margin: 0;
+    /* Premium full-bleed backdrop blending a deep slate-indigo gradient with the website's hero image */
+    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.78) 0%, rgba(138, 43, 226, 0.45) 100%), url('images/bc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+/* Glassmorphism Card styling with refined dropshadows */
+.auth-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 45px 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    animation: auth-card-fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes auth-card-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.brand-logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.03em;
+}
+
+.brand-logo {
+    object-fit: contain;
+}
+
+.auth-card h2 {
+    margin: 0 0 8px 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+}
+
+.auth-subtitle {
+    margin: 0 0 25px 0;
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Left-aligned input icons */
+.input-wrapper .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #94a3b8;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+/* Highlight icon color on focus within input wrapper */
+.input-wrapper:focus-within .input-icon {
+    color: #8a2be2;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 16px 13px 46px; /* Left padding for icons */
+    border-radius: 12px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 14.5px;
+    background-color: #f8fafc;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #0f172a;
+    font-weight: 500;
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+.form-group input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #8a2be2;
+    box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.15);
+}
+
+/* Invalid form field states */
+.form-group.invalid input {
+    border-color: #f43f5e;
+    background-color: #fff1f2;
+}
+
+.form-group.invalid input:focus {
+    box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15);
+}
+
+.form-group.invalid .input-wrapper:focus-within .input-icon {
+    color: #f43f5e;
+}
+
+/* Password eye toggle */
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease;
+}
+
+.password-toggle:hover {
+    color: #0f172a;
+}
+
+.eye-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Premium Animated Inline Field Errors */
+.field-error {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #e11d48;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.field-error.show {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 24px;
+    margin-top: 6px;
+}
+
+/* Password Strength Indicator styling */
+.password-strength-bar-wrapper {
+    height: 6px;
+    background-color: #e2e8f0;
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.password-strength-bar-wrapper.show {
+    display: block;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #e2e8f0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 6px;
+    text-align: right;
+    display: none;
+}
+
+.strength-text.show {
+    display: block;
+}
+
+/* Interactive Password Strength Checklist */
+.strength-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 12px;
+    display: none;
+}
+
+.strength-checklist.show {
+    display: flex;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #64748b;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.checklist-item .chk-icon {
+    font-size: 14px;
+    color: #cbd5e1;
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Valid checklist items style */
+.checklist-item.valid {
+    color: #16a34a;
+}
+
+.checklist-item.valid .chk-icon {
+    color: #16a34a;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* Premium Alert Banners styled like floating Toast Banners */
+.auth-alert {
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    animation: auth-alert-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes auth-alert-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-alert.success {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+}
+
+.auth-alert.error {
+    background-color: #fff5f5;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.auth-alert.hide {
+    display: none;
+}
+
+/* Submit Button & Interactive Loading Spinner styles */
+.auth-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0f172a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 10px;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+    background: #8a2be2;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -3px rgba(138, 43, 226, 0.25);
+}
+
+.auth-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.auth-submit-btn:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Button Loading Spinner */
+.auth-submit-btn .spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: button-spin 0.6s linear infinite;
+}
+
+.auth-submit-btn.loading .spinner {
+    display: inline-block;
+}
+
+@keyframes button-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.signup-link {
+    margin-top: 25px;
+    display: block;
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+    font-weight: 500;
+}
+
+.signup-link a {
+    text-decoration: none;
+    color: #8a2be2;
+    font-weight: 700;
+    transition: color 0.15s ease;
+}
+
+.signup-link a:hover {
+    color: #6d1bbf;
+    text-decoration: underline;
+}

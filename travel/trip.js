@@ -330,3 +330,105 @@ function saveTrip(destination) {
         );
     }
 }
+
+// client-side pagination for static package cards
+const PAGE_SIZE = 6;
+let currentPage = 1;
+
+function initPagination() {
+    const packageContainer = document.querySelector(".package-container");
+    if (!packageContainer) return;
+    
+    // Create pagination container
+    let paginationContainer = document.getElementById("pagination-container");
+    if (!paginationContainer) {
+        paginationContainer = document.createElement("div");
+        paginationContainer.id = "pagination-container";
+        paginationContainer.className = "pagination-container";
+        packageContainer.insertAdjacentElement("afterend", paginationContainer);
+    }
+    
+    // Check if a specific place is selected in URL (e.g. redirected from search/filter)
+    // If so, only show that place and skip pagination controls
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPlace = urlParams.get("place");
+    if (selectedPlace) {
+        paginationContainer.style.display = "none";
+        return;
+    }
+    
+    const packages = Array.from(document.querySelectorAll(".package"));
+    if (packages.length <= PAGE_SIZE) {
+        paginationContainer.style.display = "none";
+        return;
+    }
+    
+    const totalPages = Math.ceil(packages.length / PAGE_SIZE);
+    
+    function showPage(page) {
+        currentPage = page;
+        
+        packages.forEach((pkg, index) => {
+            const startIdx = (page - 1) * PAGE_SIZE;
+            const endIdx = page * PAGE_SIZE;
+            if (index >= startIdx && index < endIdx) {
+                pkg.style.display = "flex"; // Restores the original flex display from trip.css
+            } else {
+                pkg.style.display = "none";
+            }
+        });
+        
+        renderControls();
+        
+        // Scroll smoothly to package header section top
+        const headingElement = document.querySelector(".t");
+        if (headingElement) {
+            window.scrollTo({
+                top: headingElement.offsetTop - 20,
+                behavior: "smooth"
+            });
+        }
+    }
+    
+    function renderControls() {
+        paginationContainer.innerHTML = "";
+        
+        // Prev button
+        const prevBtn = document.createElement("button");
+        prevBtn.className = `pagination-btn prev-btn ${currentPage === 1 ? 'disabled' : ''}`;
+        prevBtn.innerHTML = "&larr; Prev";
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.addEventListener("click", () => {
+            if (currentPage > 1) showPage(currentPage - 1);
+        });
+        paginationContainer.appendChild(prevBtn);
+        
+        // Page buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement("button");
+            pageBtn.className = `pagination-btn num-btn ${currentPage === i ? 'active' : ''}`;
+            pageBtn.textContent = i;
+            pageBtn.addEventListener("click", () => showPage(i));
+            paginationContainer.appendChild(pageBtn);
+        }
+        
+        // Next button
+        const nextBtn = document.createElement("button");
+        nextBtn.className = `pagination-btn next-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+        nextBtn.innerHTML = "Next &rarr;";
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.addEventListener("click", () => {
+            if (currentPage < totalPages) showPage(currentPage + 1);
+        });
+        paginationContainer.appendChild(nextBtn);
+    }
+    
+    showPage(1);
+}
+
+// Initialize pagination on DOM ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPagination);
+} else {
+    initPagination();
+}

@@ -1,89 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup</title>
+    <title>Sign Up - RoamEase</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #74ebd5, #ACB6E5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .signup-container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            width: 400px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-        }
-
-        h2 {
-            margin-bottom: 25px;
-            font-size: 26px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 15px;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: black;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: blueviolet;
-        }
-
-        .login-link {
-            margin-top: 18px;
-            display: block;
-            font-size: 14px;
-        }
-
-        .login-link a {
-            text-decoration: none;
-            color: blueviolet;
-            font-weight: bold;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
 </head>
-<script src="auth.js"></script>
-<body>
+<body class="auth-body">
 
-    <div class="signup-container">
+    <div class="auth-card">
+        <div class="brand-logo-area">
+            <img src="images/icon.png" class="brand-logo" width="32" height="32" alt="Logo">
+            <span class="brand-name">RoamEase</span>
+        </div>
+        
         <h2>Create Account</h2>
+        <p class="auth-subtitle">Join us to explore the world, one journey at a time</p>
 
-        <form onsubmit="handleSignup(event)">
-            <input type="text" id="name" placeholder="Enter Name" required>
-            <input type="email" id="email" placeholder="Enter Email" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
+        <!-- Dynamic Form Alert Banner -->
+        <div id="authAlert" class="auth-alert hide"></div>
 
-            <button type="submit">Signup</button>
+        <form id="signupForm" onsubmit="handleSignup(event)" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <input type="text" id="name" placeholder="John Doe" required autocomplete="name">
+                </div>
+                <span id="nameError" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <input type="email" id="email" placeholder="name@example.com" required autocomplete="email">
+                </div>
+                <span id="emailError" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <input type="password" id="password" placeholder="Min. 6 characters" required autocomplete="new-password">
+                    <button type="button" class="password-toggle" onclick="togglePasswordVisibility('password', this)">
+                        <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+                <span id="passwordError" class="field-error"></span>
+                <!-- Password Strength Indicator -->
+                <div class="password-strength-bar-wrapper">
+                    <div id="strengthIndicator" class="password-strength-bar"></div>
+                </div>
+                <span id="strengthText" class="strength-text"></span>
+                
+                <!-- Password Strength Checklist -->
+                <div class="strength-checklist" id="strengthChecklist">
+                    <div class="checklist-item" id="chkLength">
+                        <span class="chk-icon">○</span>
+                        <span class="chk-text">Min. 6 characters</span>
+                    </div>
+                    <div class="checklist-item" id="chkNumber">
+                        <span class="chk-icon">○</span>
+                        <span class="chk-text">At least 1 number</span>
+                    </div>
+                    <div class="checklist-item" id="chkUpper">
+                        <span class="chk-icon">○</span>
+                        <span class="chk-text">At least 1 uppercase letter</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="auth-submit-btn">
+                <span class="spinner"></span>
+                <span>Sign Up</span>
+            </button>
         </form>
 
-        <span class="login-link">
-            Already have an account? <a href="login.html">Login</a>
+        <span class="signup-link">
+            Already have an account? <a href="login.html">Sign in instead</a>
         </span>
     </div>
 
+    <script src="auth.js"></script>
 </body>
 </html>

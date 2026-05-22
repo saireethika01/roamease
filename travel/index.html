@@ -29,7 +29,7 @@
             </div>
             <div class="content">
                 <div class="main_content">
-                    <div class="main_heading"><h2>Explore the World, One Journey at a Time<h2></div>
+                    <div class="main_heading"><h2>Explore the World, One Journey at a Time</h2></div>
                     <input type="text" id="searchInput" placeholder="Search destinations..." class="search-box">
                     <div id="searchResults"></div>
 
@@ -55,16 +55,59 @@
                     </div>
                 </div>
                 <br>
+                <h2 class="section-title">About Us</h2>
                 <div class="about_us" id="about us">
                     <img src="images/side.jpg" class="s">
                     <div class="side_text">
-                        <h1>About Us</h1>
                         <p>Welcome to Travel With Us — your trusted companion for unforgettable journeys. We are dedicated to making travel easier, affordable, and more enjoyable for everyone. Whether you're dreaming of relaxing beaches, thrilling adventures, or exploring new cultures, our platform offers personalized travel experiences tailored to your needs. With budget-friendly packages, 24/7 customer support, and secure booking options, we ensure a smooth and hassle-free trip from start to finish. At Travel With Us, we believe that travel is not just about reaching a destination — it’s about creating memories that last a lifetime. Start your journey with us and explore the world your way.</p>
                     </div>
                 </div>
-                <br>
+
+                <hr class="section-divider">
+
+                <div class="reviews-section" id="reviews">
+                    <div class="reviews-header-container">
+                        <h2 class="section-title">Reviews</h2>
+                        <button class="btn secondary add-review-trigger" onclick="openReviewSheet()">Add Review</button>
+                    </div>
+                    <div id="reviewsGrid" class="reviews-grid">
+                        <!-- Reviews will render dynamically -->
+                    </div>
+                </div>
+
+                <div id="reviewSheetBackdrop" class="sheet-backdrop" onclick="closeReviewSheet()"></div>
+                <div id="reviewSheet" class="sheet">
+                    <div class="sheet-header">
+                        <h3>Add Your Review</h3>
+                        <span class="close-sheet" onclick="closeReviewSheet()">&times;</span>
+                    </div>
+                    <form onsubmit="handleReviewSubmit(event)" class="sheet-form">
+                        <div class="form-group">
+                            <label for="reviewName">Your Name</label>
+                            <input type="text" id="reviewName" placeholder="e.g. Aarav Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <div class="star-rating-input">
+                                <input type="radio" id="star5" name="rating" value="5" required /><label for="star5" title="5 stars">★</label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Write your review here...</label>
+                            <textarea id="reviewText" placeholder="Share your travel experiences..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-review-btn">Submit Review</button>
+                    </form>
+                </div>
+
+                <hr class="section-divider">
+
                 <div class="gallery" id="gallery">
-                    <h1 class="g">Our Gallery</h1>
+                    <h2 class="section-title">Our Gallery</h2>
                     <img src="images/g1.jpg" class="g1">
                     <img src="images/g2.jpg" class="g2">
                     <img src="images/g3.jpg" class="g3">
@@ -97,6 +140,7 @@
         checkLogin();
     </script>
     <script src="search.js"></script>
+    <script src="reviews.js"></script>
   
 
 </html>

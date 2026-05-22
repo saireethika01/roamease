@@ -368,8 +368,11 @@ function makePayment() {
     // stop timer
     clearInterval(paymentTimer);
 
-
-
+    // Save final paid total in localStorage booking object
+    if (bookingData) {
+        bookingData.paidTotal = total;
+        localStorage.setItem("booking", JSON.stringify(bookingData));
+    }
 
     // processing text
     document.getElementById("loader").innerHTML =

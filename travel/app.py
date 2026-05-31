@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from groq import Groq
 import os
+import json
+import hashlib
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,6 +14,10 @@ CORS(app)
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY)
 
+# Simple in-memory cache for API responses
+response_cache = {}
+MAX_CACHE_SIZE = 100
+
 @app.route("/api/chat", methods=["POST"])
 def chat():
     data = request.json
@@ -19,6 +25,13 @@ def chat():
     
     if not messages:
         return jsonify({"error": "Messages are required"}), 400
+        
+    # Generate a cache key based on the exact message history
+    messages_json = json.dumps(messages, sort_keys=True)
+    cache_key = hashlib.md5(messages_json.encode('utf-8')).hexdigest()
+    
+    if cache_key in response_cache:
+        return jsonify({"reply": response_cache[cache_key], "cached": True})
         
     try:
         # Prepend the system prompt to the messages list
@@ -35,7 +48,13 @@ def chat():
             max_tokens=512,
         )
         reply = chat_completion.choices[0].message.content
-        return jsonify({"reply": reply})
+        
+        # Add response to cache, remove oldest if over size limit
+        if len(response_cache) >= MAX_CACHE_SIZE:
+            response_cache.pop(next(iter(response_cache)))
+        response_cache[cache_key] = reply
+        
+        return jsonify({"reply": reply, "cached": False})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

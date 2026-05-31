@@ -2,6 +2,7 @@
 
 let chatMessages = [];
 let chatHistory = [];
+let currentChatId = null;
 
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotHTML = `
@@ -89,13 +90,46 @@ function toggleChatbot() {
 
 function saveChat() {
     localStorage.setItem('roamease_current_chat', JSON.stringify(chatMessages));
+    
+    if (chatMessages.some(m => m.role === 'user')) {
+        let historyIndex = chatHistory.findIndex(h => h.id === currentChatId);
+        if (historyIndex >= 0) {
+            chatHistory[historyIndex].messages = [...chatMessages];
+        } else {
+            chatHistory.push({
+                id: currentChatId,
+                timestamp: currentChatId,
+                messages: [...chatMessages]
+            });
+        }
+        localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
+    }
 }
 
 function loadChat() {
     const savedHistory = localStorage.getItem('roamease_chat_history');
     if (savedHistory) {
         chatHistory = JSON.parse(savedHistory);
+        let modified = false;
+        chatHistory.forEach(h => {
+            if (!h.id) {
+                h.id = h.timestamp || Date.now() - Math.floor(Math.random() * 10000);
+                modified = true;
+            }
+        });
+        if (modified) {
+            localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
+        }
     }
+    
+    const savedId = localStorage.getItem('roamease_current_chat_id');
+    if (savedId) {
+        currentChatId = parseInt(savedId);
+    } else {
+        currentChatId = Date.now();
+        localStorage.setItem('roamease_current_chat_id', currentChatId.toString());
+    }
+
     const saved = localStorage.getItem('roamease_current_chat');
     const chatBody = document.getElementById('chatbotBody');
     chatBody.innerHTML = '';
@@ -115,20 +149,10 @@ function loadChat() {
     }
 }
 
-function saveCurrentChatToHistory() {
-    // Only save if there are user messages
-    if (chatMessages.some(m => m.role === 'user')) {
-        chatHistory.push({
-            timestamp: Date.now(),
-            messages: [...chatMessages]
-        });
-        localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
-    }
-}
-
 function clearChat() {
-    saveCurrentChatToHistory();
     chatMessages = [];
+    currentChatId = Date.now();
+    localStorage.setItem('roamease_current_chat_id', currentChatId.toString());
     saveChat();
     loadChat();
 }
@@ -182,15 +206,12 @@ function renderHistoryList() {
 }
 
 function loadHistoryChat(index) {
-    saveCurrentChatToHistory();
-    
     const historyItem = chatHistory[index];
+    currentChatId = historyItem.id;
+    localStorage.setItem('roamease_current_chat_id', currentChatId.toString());
+    
     chatMessages = [...historyItem.messages];
     saveChat();
-    
-    // Remove from history list as it is now the active chat
-    chatHistory.splice(index, 1);
-    localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
     
     loadChat();
     hidePreviousChats();
@@ -242,7 +263,11 @@ function appendMessage(text, sender, animate = true) {
     const chatBody = document.getElementById('chatbotBody');
     const msgDiv = document.createElement('div');
     msgDiv.className = `chat-message ${sender}`;
-    if (!animate) msgDiv.style.animation = 'none';
+    if (!animate) {
+        msgDiv.style.animation = 'none';
+        msgDiv.style.opacity = '1';
+        msgDiv.style.transform = 'translateY(0)';
+    }
     
     if (sender === 'bot') {
         if (typeof marked !== 'undefined') {

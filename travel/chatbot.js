@@ -1,6 +1,7 @@
 /* chatbot.js */
 
 let chatMessages = [];
+let chatHistory = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotHTML = `
@@ -31,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         </svg>
                     </div>
                     <div class="chatbot-header-text">
-                        <h3>Roamie</h3>
+                        <div class="name-row">
+                            <h3>Roamie</h3>
+                            <span class="prev-chats-link" onclick="showPreviousChats()">Previous Chats</span>
+                        </div>
                         <span class="chatbot-status">Online</span>
                     </div>
                 </div>
@@ -46,8 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="chatbot-body" id="chatbotBody">
                 <!-- Messages go here -->
             </div>
+
+            <div class="chatbot-history-body" id="chatbotHistoryBody" style="display: none;">
+                <div class="history-header">
+                    <button class="back-to-chat-btn" onclick="hidePreviousChats()">
+                        &larr; Back to Chat
+                    </button>
+                </div>
+                <div id="historyList" class="history-list"></div>
+            </div>
             
-            <div class="chatbot-footer">
+            <div class="chatbot-footer" id="chatbotFooter">
                 <div class="chatbot-input-container">
                     <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask Roamie anything..." onkeypress="handleChatbotKeyPress(event)">
                     <button class="chatbot-send-btn" onclick="sendChatbotMessage()">
@@ -79,6 +92,10 @@ function saveChat() {
 }
 
 function loadChat() {
+    const savedHistory = localStorage.getItem('roamease_chat_history');
+    if (savedHistory) {
+        chatHistory = JSON.parse(savedHistory);
+    }
     const saved = localStorage.getItem('roamease_current_chat');
     const chatBody = document.getElementById('chatbotBody');
     chatBody.innerHTML = '';
@@ -98,10 +115,85 @@ function loadChat() {
     }
 }
 
+function saveCurrentChatToHistory() {
+    // Only save if there are user messages
+    if (chatMessages.some(m => m.role === 'user')) {
+        chatHistory.push({
+            timestamp: Date.now(),
+            messages: [...chatMessages]
+        });
+        localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
+    }
+}
+
 function clearChat() {
+    saveCurrentChatToHistory();
     chatMessages = [];
     saveChat();
     loadChat();
+}
+
+function showPreviousChats() {
+    document.getElementById('chatbotBody').style.display = 'none';
+    document.getElementById('chatbotFooter').style.display = 'none';
+    document.getElementById('chatbotHistoryBody').style.display = 'flex';
+    
+    renderHistoryList();
+}
+
+function hidePreviousChats() {
+    document.getElementById('chatbotHistoryBody').style.display = 'none';
+    document.getElementById('chatbotBody').style.display = 'flex';
+    document.getElementById('chatbotFooter').style.display = 'block';
+    
+    const chatBody = document.getElementById('chatbotBody');
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function renderHistoryList() {
+    const list = document.getElementById('historyList');
+    list.innerHTML = '';
+    
+    if (chatHistory.length === 0) {
+        list.innerHTML = '<div class="no-history">No previous chats.</div>';
+        return;
+    }
+    
+    // Reverse copy so newest is at the top
+    const historyReversed = [...chatHistory].reverse();
+    historyReversed.forEach((historyItem, index) => {
+        const realIndex = chatHistory.length - 1 - index;
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'history-item';
+        
+        const firstUserMsg = historyItem.messages.find(m => m.role === 'user');
+        let title = firstUserMsg ? firstUserMsg.content : 'Chat Session';
+        if (title.length > 40) title = title.substring(0, 40) + '...';
+        
+        const dateStr = new Date(historyItem.timestamp).toLocaleString();
+        
+        itemDiv.innerHTML = `
+            <div class="history-title">${title}</div>
+            <div class="history-date">${dateStr}</div>
+        `;
+        itemDiv.onclick = () => loadHistoryChat(realIndex);
+        list.appendChild(itemDiv);
+    });
+}
+
+function loadHistoryChat(index) {
+    saveCurrentChatToHistory();
+    
+    const historyItem = chatHistory[index];
+    chatMessages = [...historyItem.messages];
+    saveChat();
+    
+    // Remove from history list as it is now the active chat
+    chatHistory.splice(index, 1);
+    localStorage.setItem('roamease_chat_history', JSON.stringify(chatHistory));
+    
+    loadChat();
+    hidePreviousChats();
 }
 
 function handleChatbotKeyPress(event) {

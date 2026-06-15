@@ -93,6 +93,14 @@ emailjs.send("service_3i538fn",
 // cancel booking
 function cancelBooking() {
 
+    let confirmCancel = confirm(
+        "Are you sure you want to cancel this ticket?"
+    );
+
+    if (!confirmCancel) {
+        return;
+    }
+
     // booking creation date
     let bookingDate =
         new Date(bookingData.bookingCreatedAt);
@@ -155,13 +163,28 @@ function cancelBooking() {
 }
 
 
-// Helper to load image as a promise
+// Helper to load image as a promise with CORS resilience
 function loadImage(src) {
     return new Promise((resolve) => {
         const img = new Image();
+        
+        // Use anonymous crossOrigin only if not on file protocol
+        if (location.protocol !== 'file:') {
+            img.crossOrigin = "Anonymous";
+        }
+        
         img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-        img.src = src;
+        img.onerror = () => {
+            console.warn(`Failed to lead image: ${src}. PDF will use fallback graphics.`);
+            resolve(null);
+        };
+        
+        try {
+            img.src = src;
+        } catch (e) {
+            console.error("Security error setting image src:", e);
+            resolve(null);
+        }
     });
 }
 
@@ -277,10 +300,19 @@ async function downloadTicket() {
         // Add brand logo inside a white circular border
         doc.setFillColor(255, 255, 255);
         doc.circle(26, 28, 7, "F");
+        
+        let logoAdded = false;
         if (logo) {
-            doc.addImage(logo, "PNG", 21.5, 23.5, 9, 9);
-        } else {
-            // Fallback logo design
+            try {
+                doc.addImage(logo, "PNG", 21.5, 23.5, 9, 9);
+                logoAdded = true;
+            } catch (err) {
+                console.warn("Logo addition failed (likely CORS/file protocol):", err);
+            }
+        } 
+        
+        if (!logoAdded) {
+            // Fallback logo design if image loading or addition failed
             doc.setFillColor(138, 43, 226);
             doc.circle(26, 28, 4, "F");
             doc.setFillColor(255, 255, 255);
@@ -427,9 +459,17 @@ async function downloadTicket() {
         doc.setLineWidth(0.4);
         doc.roundedRect(150, 102, 30, 30, 1.5, 1.5, "FD");
         
+        let qrAdded = false;
         if (qr) {
-            doc.addImage(qr, "PNG", 152.5, 104.5, 25, 25);
-        } else {
+            try {
+                doc.addImage(qr, "PNG", 152.5, 104.5, 25, 25);
+                qrAdded = true;
+            } catch (err) {
+                console.warn("QR addition failed (likely CORS/file protocol):", err);
+            }
+        } 
+        
+        if (!qrAdded) {
             // Stately QR vector fallback
             doc.setFillColor(138, 43, 226);
             doc.rect(154, 106, 6, 6, "F");

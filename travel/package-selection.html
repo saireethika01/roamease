@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RoamEase - Select Package</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="trip.css">
+    <link rel="stylesheet" href="package-selection.css">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Header -->
+        <div class="header">
+            <div class="icon_area">
+                <img src="images/icon.png" class="icon" width="30" height="30" alt="Logo">
+                <span class="icon_name"><strong>RoamEase</strong></span>
+            </div>
+            <div class="menu_area">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="trip.html">Destinations</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Selection Page Content -->
+        <h1 class="t" id="selection-title">Choose Your Package</h1>
+        
+        <div class="back-link-container">
+            <a href="trip.html" class="back-btn-link">&larr; Back to Destinations</a>
+        </div>
+
+        <div class="packages-selection-container" id="packages-container">
+            <div class="loading-state">Loading packages...</div>
+        </div>
+
+        <!-- Chatbot component -->
+        <script src="chatbot.js"></script>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        checkLogin();
+    </script>
+    <script src="package-selection.js"></script>
+</body>
+</html>

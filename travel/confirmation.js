@@ -1,4 +1,4 @@
-emailjs.init("SV3AkwM3-qT4fThHm");
+// EmailJS is disabled in favor of secure backend SMTP routing via Brevo.
 
 // Pre-load brand logo and QR code images for high-quality PDF ticket generation
 const logoImg = new Image();
@@ -71,21 +71,40 @@ document.getElementById("transactionId").textContent =
 
 
 
-// send confirmation email
-emailjs.send("service_3i538fn",
-"template_tqngyki", {
+// Manage persistent Ticket ID early
+let ticketId = localStorage.getItem("ticketId");
+if (!ticketId) {
+    ticketId = "TRV" + Math.floor(10000 + Math.random() * 90000);
+    localStorage.setItem("ticketId", ticketId);
+}
 
-    name: bookingData.name,
-
-    destination: bookingData.destination,
-
-    date: formattedDate,
-
-    people: bookingData.people,
-
-    transaction: txnId,
-
-    email: bookingData.email
+// send confirmation email via backend API
+fetch("http://127.0.0.1:5000/api/send-email", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        type: "confirmation",
+        name: bookingData.name,
+        destination: bookingData.destination,
+        date: formattedDate,
+        people: bookingData.people,
+        transaction: txnId,
+        ticketId: ticketId,
+        email: bookingData.email
+    })
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        console.log("Confirmation email sent successfully via Brevo SMTP");
+    } else {
+        console.error("Failed to send confirmation email:", data.error);
+    }
+})
+.catch(error => {
+    console.error("Error sending confirmation email:", error);
 });
 
 
@@ -127,23 +146,31 @@ function cancelBooking() {
 
         alert("Booking Cancelled Successfully!\n\nRefund has been initiated.");
 
-        // send cancellation email
-     emailjs.send(
-    "service_1c0a6xg",
-    "template_y1kxqsb",
-    {
-
-        name: bookingData.name,
-
-        destination: bookingData.destination,
-
-        transaction: txnId,
-
-        email: bookingData.email
-    },
-
-    "iGjPq2NUqpfGy3R8q"
-    );
+        // send cancellation email via backend API
+        fetch("http://127.0.0.1:5000/api/send-email", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                type: "cancellation",
+                name: bookingData.name,
+                destination: bookingData.destination,
+                transaction: txnId,
+                email: bookingData.email
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log("Cancellation email sent successfully via Brevo SMTP");
+            } else {
+                console.error("Failed to send cancellation email:", data.error);
+            }
+        })
+        .catch(error => {
+            console.error("Error sending cancellation email:", error);
+        });
 
         localStorage.removeItem("booking");
 

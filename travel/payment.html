@@ -113,17 +113,24 @@
                     <!-- CARD SECTION -->
                     <div id="cardSection" style="display: none;">
                         <input type="text"
-                            placeholder="Card Number"
-                            class="payment-input">
-                            <input type="text"
+                            id="cardNumber"
+                            placeholder="Card Number (16 digits)"
+                            class="payment-input"
+                            maxlength="19">
+                        <input type="text"
+                            id="cardHolderName"
                             placeholder="Card Holder Name"
                             class="payment-input">
-                            <input type="text" 
-                            placeholder="Expiry Date"
-                            class="payment-input">
-                            <input type="password"  
-                             placeholder="CVV" 
-                             class="payment-input">
+                        <input type="text" 
+                            id="cardExpiry"
+                            placeholder="Expiry Date (MM/YY)"
+                            class="payment-input"
+                            maxlength="5">
+                        <input type="password"  
+                            id="cardCvv"
+                            placeholder="CVV (3-4 digits)" 
+                            class="payment-input"
+                            maxlength="4">
                     </div>
                     <!-- NET BANKING -->
                     <div id="bankSection" style="display: none;">
@@ -166,6 +173,10 @@
 
     </div>
 
+    <script src="auth.js"></script>
+    <script>
+        checkLogin();
+    </script>
     <script src="payment.js"></script>
 
     <script src="chatbot.js"></script>

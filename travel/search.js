@@ -80,25 +80,19 @@ async function () {
 
 
     // countries API
-    let response =
-        await fetch(
-            `https://restcountries.com/v3.1/name/${value}`
-        );
-
-
-
     let countries = [];
-
-
-
-    if (response.ok) {
-
-        let data = await response.json();
-
-        countries = data.map(function (country) {
-
-            return country.name.common;
-        });
+    try {
+        let response = await fetch(
+            `https://restcountries.com/v3.1/name/${value}?fields=name`
+        );
+        if (response.ok) {
+            let data = await response.json();
+            countries = data.map(function (country) {
+                return country.name.common;
+            });
+        }
+    } catch (error) {
+        console.log("Countries API Error:", error);
     }
 
 
@@ -134,7 +128,7 @@ async function () {
             searchResults.innerHTML = "";
 
             window.location.href =
-                `trip.html?place=${place.toLowerCase()}`;
+                `package-selection.html?destination=${encodeURIComponent(place)}`;
         });
 
 

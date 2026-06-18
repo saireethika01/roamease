@@ -44,7 +44,11 @@ function handleBooking(event) {
     let date =
         document.getElementById("date").value;
 
-
+    let peopleVal = parseInt(people, 10);
+    if (isNaN(peopleVal) || peopleVal < 1) {
+        alert("Please enter a valid number of people (minimum 1).");
+        return;
+    }
 
     let bookingData = {
 
@@ -56,7 +60,7 @@ function handleBooking(event) {
             destination.charAt(0).toUpperCase() +
             destination.slice(1).toLowerCase(),
 
-        people,
+        people: peopleVal,
 
         date,
 
@@ -252,71 +256,67 @@ async function getWeather() {
 
 
 
-    // fetch weather API
-    let response = await fetch(
+    try {
+        // fetch weather API
+        let response = await fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?q=${destination}&units=metric&appid=766a6b615aedc7e60e2e75d5b4505aa4`
+        );
 
-        `https://api.openweathermap.org/data/2.5/forecast?q=${destination}&units=metric&appid=766a6b615aedc7e60e2e75d5b4505aa4`
-    );
+        if (!response.ok) {
+            throw new Error("Weather API request failed");
+        }
 
+        let data = await response.json();
 
+        // find matching forecast
+        let forecast = null;
+        if (data && data.list) {
+            forecast = data.list.find(function(item) {
+                return item.dt_txt.includes(date);
+            });
+        }
 
-    let data = await response.json();
+        // if no forecast found
+        if (!forecast) {
+            let climateInfo =
+                climateData[destination.toLowerCase()];
 
+            document.getElementById("weatherBox").innerHTML =
+            `
+                <h3>Weather Forecast</h3>
+                ${climateInfo || "<p>Climate data unavailable.</p>"}
+            `;
+            return;
+        }
 
+        let temperature =
+            forecast.main.temp;
 
-    // find matching forecast
-    let forecast =
-        data.list.find(function(item) {
+        let condition =
+            forecast.weather[0].main;
 
-            return item.dt_txt.includes(date);
-        });
+        let humidity =
+            forecast.main.humidity;
 
-
-
-    // if no forecast found
-    if (!forecast) {
-
+        // show live weather
+        document.getElementById("weatherBox").innerHTML =
+        `
+            <h3>Weather Forecast</h3>
+            <p>Temperature: ${temperature}°C</p>
+            <p>Condition: ${condition}</p>
+            <p>Humidity: ${humidity}%</p>
+        `;
+    } catch (error) {
+        console.log("Weather API Error:", error);
         let climateInfo =
             climateData[destination.toLowerCase()];
 
-
-
         document.getElementById("weatherBox").innerHTML =
-
         `
             <h3>Weather Forecast</h3>
-
             ${climateInfo || "<p>Climate data unavailable.</p>"}
         `;
-
-        return;
     }
-
-
-
-    let temperature =
-        forecast.main.temp;
-
-    let condition =
-        forecast.weather[0].main;
-
-    let humidity =
-        forecast.main.humidity;
-
-
-
-    // show live weather
-    document.getElementById("weatherBox").innerHTML =
-
-    `
-        <h3>Weather Forecast</h3>
-
-        <p>Temperature: ${temperature}°C</p>
-
-        <p>Condition: ${condition}</p>
-
-        <p>Humidity: ${humidity}%</p>
-    `;
 }
 
 

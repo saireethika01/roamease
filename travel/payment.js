@@ -224,112 +224,92 @@ showPaymentSection();
 
 
 // coupon system
+let couponApplied = false;
+
+function formatTime(seconds) {
+    let m = Math.floor(seconds / 60);
+    let s = seconds % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
 function applyCoupon() {
+    if (couponApplied) {
+        alert("A coupon code has already been applied to this transaction.");
+        return;
+    }
 
     let coupon =
         document.getElementById("couponInput")
         .value
         .toUpperCase();
 
-
-
     if (coupon === "TRAVEL20") {
-
         total =
             total - (total * 20 / 100);
-
+        couponApplied = true;
         alert("20% Discount Applied!");
     }
 
     else if (coupon === "WELCOME10") {
-
         total =
             total - (total * 10 / 100);
-
+        couponApplied = true;
         alert("10% Discount Applied!");
     }
 
     else {
-
         alert("Invalid Coupon Code");
-
         return;
     }
-
-
 
     // update total
     document.getElementById("summaryTotal")
         .innerHTML =
-
         "Total Amount: &#8377; " + total;
 }
 
 
-
-
 // payment timer
 let paymentExpired = false;
-
-let timeLeft = 20;
-
-
-
+let timeLeft = 300;
 
 // show timer immediately
 document.getElementById("loader").style.display =
     "block";
 
 document.getElementById("loader").innerHTML =
-
 `
     <p id="timerText">
-        Complete payment within 20 sec
+        Complete payment within 5:00 min
     </p>
 `;
 
-
-
-
 // countdown
 let paymentTimer = setInterval(function () {
-
     timeLeft--;
-
-
 
     document.getElementById("timerText")
         .innerHTML =
-
         "Complete payment within " +
-        timeLeft +
-        " sec";
-
-
+        formatTime(timeLeft) +
+        " min";
 
     // timer expired
     if (timeLeft <= 0) {
-
         clearInterval(paymentTimer);
-
         paymentExpired = true;
 
-
-
         document.getElementById("loader").innerHTML =
-
         `
             <p style="color:red;">
                 Transaction Failed!
             </p>
-
             <p>
                 Payment Session Expired.
                 Please Try Again.
             </p>
         `;
     }
-
 }, 1000);
 
 
@@ -363,7 +343,58 @@ function makePayment() {
         return;
     }
 
+    // validate card fields if card is checked
+    if (card.checked) {
+        const num = document.getElementById("cardNumber").value.trim();
+        const cardName = document.getElementById("cardHolderName").value.trim();
+        const expiry = document.getElementById("cardExpiry").value.trim();
+        const cvv = document.getElementById("cardCvv").value.trim();
 
+        if (!num || !cardName || !expiry || !cvv) {
+            alert("Please fill in all credit/debit card details.");
+            return;
+        }
+
+        const cleanNum = num.replace(/\s+/g, '').replace(/-/g, '');
+        if (cleanNum.length < 15 || cleanNum.length > 19 || isNaN(cleanNum)) {
+            alert("Please enter a valid card number (15 to 19 digits).");
+            return;
+        }
+
+        if (cardName.length < 2) {
+            alert("Please enter a valid cardholder name.");
+            return;
+        }
+
+        const expiryRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+        if (!expiryRegex.test(expiry)) {
+            alert("Please enter a valid expiry date in MM/YY format.");
+            return;
+        }
+
+        if (cvv.length < 3 || cvv.length > 4 || isNaN(cvv)) {
+            alert("Please enter a valid CVV (3 or 4 digits).");
+            return;
+        }
+    }
+
+    // validate bank selection if net banking is checked
+    if (netbanking.checked) {
+        const bankSelect = document.querySelector("#bankSection select");
+        if (bankSelect.value === "Select Bank") {
+            alert("Please select your bank.");
+            return;
+        }
+    }
+
+    // validate wallet selection if wallet is checked
+    if (wallet.checked) {
+        const walletSelect = document.querySelector("#walletSection select");
+        if (walletSelect.value === "Select Wallet") {
+            alert("Please select your wallet.");
+            return;
+        }
+    }
 
     // stop timer
     clearInterval(paymentTimer);

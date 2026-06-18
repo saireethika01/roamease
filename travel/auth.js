@@ -320,8 +320,9 @@ function handleSignup(event) {
     
     setTimeout(() => {
         // Check account collision
-        const storedUser = JSON.parse(localStorage.getItem("user"));
-        if (storedUser && storedUser.email === email) {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const existingUser = users.find(u => u.email === email);
+        if (existingUser) {
             setButtonLoading("signupForm", false, "Sign Up");
             showAlert("This email is already registered. Please sign in.", "error");
             document.getElementById("email").focus();
@@ -334,7 +335,8 @@ function handleSignup(event) {
             password: password
         };
         
-        localStorage.setItem("user", JSON.stringify(user));
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
         setButtonLoading("signupForm", false, "Sign Up");
         showAlert("Account created successfully! Redirecting to login...", "success");
         
@@ -384,24 +386,25 @@ function handleLogin(event) {
     setButtonLoading("loginForm", true, "Sign In");
     
     setTimeout(() => {
-        const storedUser = JSON.parse(localStorage.getItem("user"));
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const matchedUser = users.find(u => u.email === email && u.password === password);
         
-        if (!storedUser) {
-            setButtonLoading("loginForm", false, "Sign In");
-            showAlert("No registered account found on this device. Please sign up first.", "error");
-            return;
-        }
-        
-        if (email === storedUser.email && password === storedUser.password) {
+        if (matchedUser) {
             showAlert("Welcome back! Redirecting to home...", "success");
             localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(matchedUser));
             
             setTimeout(() => {
                 window.location.href = "index.html";
             }, 1000);
         } else {
             setButtonLoading("loginForm", false, "Sign In");
-            showAlert("Incorrect email address or password. Please try again.", "error");
+            const emailExists = users.some(u => u.email === email);
+            if (!emailExists) {
+                showAlert("No registered account found with this email on this device. Please sign up first.", "error");
+            } else {
+                showAlert("Incorrect password. Please try again.", "error");
+            }
             document.getElementById("loginPassword").value = "";
             document.getElementById("loginPassword").focus();
         }

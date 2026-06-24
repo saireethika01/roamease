@@ -1,0 +1,25 @@
+.confirm-page { min-height: 100vh; background: #f0fdf4; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+.confirm-container { background: #fff; border-radius: 16px; padding: 44px 40px; max-width: 540px; width: 100%; box-shadow: 0 8px 24px rgba(0,0,0,0.08); text-align: center; }
+.confirm-icon { font-size: 56px; margin-bottom: 12px; }
+.confirm-container h1 { margin: 0 0 8px; font-size: 28px; font-weight: 800; color: #16a34a; }
+.confirm-container h2 { margin: 0 0 24px; font-size: 20px; font-weight: 600; color: #0f172a; }
+.confirm-details { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; text-align: left; margin-bottom: 20px; }
+.confirm-details p { margin: 6px 0; font-size: 15px; color: #475569; }
+.confirm-details strong { color: #0f172a; }
+.email-msg { font-size: 14px; color: #475569; margin: 0 0 6px; }
+.cancel-note { font-size: 13px; color: #f97316; background: #fff7ed; border: 1px solid #fed7aa; padding: 8px 12px; border-radius: 6px; margin: 0 0 24px; }
+.confirm-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.download-btn {
+  padding: 12px 24px; background: #0f172a; color: #fff;
+  border: none; border-radius: 8px; font-weight: 700; font-size: 15px;
+  cursor: pointer; font-family: inherit; transition: background 0.2s;
+}
+.download-btn:hover { background: #8a2be2; }
+.cancel-btn {
+  padding: 12px 24px; background: #fff; color: #ef4444;
+  border: 1.5px solid #fca5a5; border-radius: 8px; font-weight: 700;
+  font-size: 15px; cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.cancel-btn:hover { background: #fef2f2; border-color: #ef4444; }
+.home-link { display: inline-block; color: #8a2be2; font-weight: 600; font-size: 14px; text-decoration: none; }
+.home-link:hover { text-decoration: underline; }

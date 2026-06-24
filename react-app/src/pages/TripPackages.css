@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.trip-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding-bottom: 40px;
+}
+
+.trip-heading {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  margin: 0;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.trip-search-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 24px 20px 0;
+}
+
+.trip-search {
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  color: #0f172a;
+}
+
+.trip-search:focus {
+  border-color: #8a2be2;
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.12);
+}
+
+.trip-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+.trip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px 20px;
+}

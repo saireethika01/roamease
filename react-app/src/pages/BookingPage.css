@@ -1,0 +1,34 @@
+.booking-page { min-height: 100vh; background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+.booking-container { background: #fff; border-radius: 14px; padding: 40px 36px; width: 100%; max-width: 480px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.booking-container h2 { margin: 0 0 24px; font-size: 24px; font-weight: 700; color: #0f172a; font-family: 'Playfair Display', Georgia, serif; }
+.booking-container form { display: flex; flex-direction: column; gap: 14px; }
+.booking-container input {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: border-color 0.2s;
+}
+.booking-container input:focus { border-color: #8a2be2; background: #fff; }
+.booking-container button {
+  padding: 13px;
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.booking-container button:hover { background: #8a2be2; }
+.weather-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 16px; font-size: 14px; color: #0369a1; }
+.weather-box h3 { margin: 0 0 8px; font-size: 15px; }
+.weather-box p { margin: 3px 0; }
+.weather-box small { opacity: 0.7; font-size: 12px; }

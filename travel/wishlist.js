@@ -23,7 +23,27 @@ let images = {
     Thailand: "images/thailand.jpg",
     Switzerland: "images/switzerland.jpg",
     Singapore: "images/singapore.jpg",
-    Japan: "images/japan.jpg"
+    Japan: "images/japan.jpg",
+    Turkey: "images/turkey.jpg",
+    Canada: "images/canada.jpg",
+    Australia: "images/australia.jpg",
+    Italy: "images/italy.jpg",
+    Germany: "images/germany.jpg",
+    Spain: "images/spain.jpg",
+    Greece: "images/greece.jpg",
+    "New York": "images/newyork.jpg",
+    "Los Angeles": "images/losangeles.jpg",
+    Bangkok: "images/bangkok.jpg",
+    Seoul: "images/seoul.jpg",
+    Shimla: "images/shimla.jpg",
+    Malaysia: "images/malaysia.jpg",
+    Indonesia: "images/indonesia.jpg",
+    Vietnam: "images/vietnam.jpg",
+    Kerala: "images/kerala.jpg",
+    Andaman: "images/andaman.jpg",
+    Panama: "images/panama.jpg",
+    Pakistan: "images/pakistan.jpg",
+    Portugal: "images/portugal.jpg"
 };
 
 // show empty message if no saved trips
